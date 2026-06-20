@@ -12,7 +12,7 @@ function PropertyList() {
   const fetchProperties = async () => {
     try {
       const res = await axios.get(
-        "https://house-rent-project-9jwd.onrender.com/api/auth/register",
+        "https://house-rent-project-9jwd.onrender.com/api/property"
       );
 
       setProperties(res.data);
@@ -26,7 +26,7 @@ function PropertyList() {
       const token = localStorage.getItem("token");
 
       await axios.delete(
-  `https://house-rent-project-9jwd.onrender.com/api/property/delete/${id}`,
+        `https://house-rent-project-9jwd.onrender.com/api/property/delete/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -35,7 +35,6 @@ function PropertyList() {
       );
 
       alert("Property Deleted Successfully");
-
       fetchProperties();
     } catch (error) {
       console.log(error);
@@ -57,24 +56,19 @@ function PropertyList() {
               key={property._id}
             >
               <div className="card shadow h-100">
-
                 <img
-  src={property.image}
-  alt={property.title}
-  className="card-img-top"
-  style={{
-    height: "220px",
-    objectFit: "cover"
-  }}
-  onError={(e) => {
-    e.target.src =
-      "https://via.placeholder.com/400x220?text=No+Image";
-  }}
-/>
-
-<p className="mt-2">
-  <strong>Image URL:</strong> {property.image}
-</p>
+                  src={property.image}
+                  alt={property.title}
+                  className="card-img-top"
+                  style={{
+                    height: "220px",
+                    objectFit: "cover"
+                  }}
+                  onError={(e) => {
+                    e.target.src =
+                      "https://via.placeholder.com/400x220?text=No+Image";
+                  }}
+                />
 
                 <div className="card-body">
                   <h4>{property.title}</h4>
@@ -85,8 +79,7 @@ function PropertyList() {
                   </p>
 
                   <p>
-                    <strong>Rent:</strong> ₹
-                    {property.rent}
+                    <strong>Rent:</strong> ₹{property.rent}
                   </p>
 
                   <p>
@@ -118,7 +111,6 @@ function PropertyList() {
                     Delete
                   </button>
                 </div>
-
               </div>
             </div>
           ))}
