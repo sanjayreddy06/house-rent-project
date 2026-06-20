@@ -24,7 +24,7 @@ function AddProperty() {
       const token = localStorage.getItem("token");
 
       await axios.post(
-        "http://localhost:5000/api/property/add",
+        "https://house-rent-project-9jwd.onrender.com/api/property/add",
         formData,
         {
           headers: {

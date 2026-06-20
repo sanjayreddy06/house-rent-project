@@ -18,7 +18,7 @@ function EditProperty() {
     const fetchProperty = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/property/${id}`
+          `https://house-rent-project-9jwd.onrender.com/api/property/${id}`
         );
 
         setFormData({
@@ -50,7 +50,7 @@ function EditProperty() {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        `http://localhost:5000/api/property/update/${id}`,
+        `https://house-rent-project-9jwd.onrender.com/api/property/update/${id}`,
         formData,
         {
           headers: {

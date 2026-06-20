@@ -10,7 +10,7 @@ function PropertyDetails() {
     const fetchProperty = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/property/${id}`
+          `https://house-rent-project-9jwd.onrender.com/api/property/${id}`
         );
 
         setProperty(res.data);
