@@ -14,10 +14,6 @@ function EditProperty() {
     image: ""
   });
 
-  useEffect(() => {
-    fetchProperty();
-  }, []);
-
   const fetchProperty = async () => {
     try {
       const res = await axios.get(
@@ -35,6 +31,10 @@ function EditProperty() {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    fetchProperty();
+  }, [id]);
 
   const handleChange = (e) => {
     setFormData({
@@ -60,7 +60,6 @@ function EditProperty() {
       );
 
       alert("Property Updated Successfully");
-
       navigate("/properties");
     } catch (error) {
       console.log(error);
@@ -138,6 +137,7 @@ function EditProperty() {
           )}
 
           <button
+            type="submit"
             className="btn btn-success w-100"
           >
             Update Property

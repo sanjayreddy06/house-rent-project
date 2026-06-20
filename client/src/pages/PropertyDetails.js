@@ -7,10 +7,6 @@ function PropertyDetails() {
 
   const [property, setProperty] = useState(null);
 
-  useEffect(() => {
-    fetchProperty();
-  }, []);
-
   const fetchProperty = async () => {
     try {
       const res = await axios.get(
@@ -23,6 +19,10 @@ function PropertyDetails() {
     }
   };
 
+  useEffect(() => {
+    fetchProperty();
+  }, [id]);
+
   if (!property) {
     return (
       <div className="container mt-5">
@@ -34,7 +34,6 @@ function PropertyDetails() {
   return (
     <div className="container mt-5">
       <div className="card shadow p-4">
-
         <img
           src={property.image}
           alt={property.title}
@@ -49,13 +48,11 @@ function PropertyDetails() {
         <h2 className="mb-3">{property.title}</h2>
 
         <p>
-          <strong>📍 Location:</strong>{" "}
-          {property.location}
+          <strong>📍 Location:</strong> {property.location}
         </p>
 
         <p>
-          <strong>💰 Rent:</strong> ₹
-          {property.rent}
+          <strong>💰 Rent:</strong> ₹{property.rent}
         </p>
 
         <p>
@@ -67,8 +64,7 @@ function PropertyDetails() {
         <hr />
 
         <p>
-          <strong>Property ID:</strong>{" "}
-          {property._id}
+          <strong>Property ID:</strong> {property._id}
         </p>
       </div>
     </div>
