@@ -34,7 +34,7 @@ function EditProperty() {
 
   useEffect(() => {
     fetchProperty();
-  }, [id]);
+  }, []);
 
   const handleChange = (e) => {
     setFormData({

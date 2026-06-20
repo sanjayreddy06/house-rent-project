@@ -21,7 +21,7 @@ function PropertyDetails() {
 
   useEffect(() => {
     fetchProperty();
-  }, [id]);
+  }, []);
 
   if (!property) {
     return (
