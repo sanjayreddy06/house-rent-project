@@ -4,24 +4,23 @@ import { useParams } from "react-router-dom";
 
 function PropertyDetails() {
   const { id } = useParams();
-
   const [property, setProperty] = useState(null);
 
-  const fetchProperty = async () => {
-    try {
-      const res = await axios.get(
-        `http://localhost:5000/api/property/${id}`
-      );
-
-      setProperty(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
+    const fetchProperty = async () => {
+      try {
+        const res = await axios.get(
+          `http://localhost:5000/api/property/${id}`
+        );
+
+        setProperty(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     fetchProperty();
-  }, []);
+  }, [id]);
 
   if (!property) {
     return (

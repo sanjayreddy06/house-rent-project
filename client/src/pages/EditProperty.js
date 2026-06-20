@@ -14,27 +14,27 @@ function EditProperty() {
     image: ""
   });
 
-  const fetchProperty = async () => {
-    try {
-      const res = await axios.get(
-        `http://localhost:5000/api/property/${id}`
-      );
-
-      setFormData({
-        title: res.data.title,
-        description: res.data.description,
-        location: res.data.location,
-        rent: res.data.rent,
-        image: res.data.image || ""
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
+    const fetchProperty = async () => {
+      try {
+        const res = await axios.get(
+          `http://localhost:5000/api/property/${id}`
+        );
+
+        setFormData({
+          title: res.data.title,
+          description: res.data.description,
+          location: res.data.location,
+          rent: res.data.rent,
+          image: res.data.image || ""
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     fetchProperty();
-  }, []);
+  }, [id]);
 
   const handleChange = (e) => {
     setFormData({
