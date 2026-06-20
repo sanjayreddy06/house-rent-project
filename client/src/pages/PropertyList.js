@@ -26,7 +26,7 @@ function PropertyList() {
       const token = localStorage.getItem("token");
 
       await axios.delete(
-        `https://house-rent-project-9jwd.onrender.com/api/property/delete/{id}`,
+  `https://house-rent-project-9jwd.onrender.com/api/property/delete/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`
