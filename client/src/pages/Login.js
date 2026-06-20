@@ -22,9 +22,9 @@ function Login() {
 
     try {
       const res = await axios.post(
-        "https://house-rent-project-9jwd.onrender.com",
-        formData
-      );
+  "https://house-rent-project-9jwd.onrender.com/api/auth/login",
+  formData
+);
 
       alert("Login Successful");
 
