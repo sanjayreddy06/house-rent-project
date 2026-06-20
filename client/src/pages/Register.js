@@ -23,9 +23,9 @@ function Register() {
 
     try {
       await axios.post(
-        "https://house-rent-project-9jwd.onrender.com",
-        formData
-      );
+  "https://house-rent-project-9jwd.onrender.com/api/auth/register",
+  formData
+);
 
       alert("Registration Successful");
       navigate("/login");
